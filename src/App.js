@@ -13,6 +13,7 @@ class App extends Component {
     this.onNext = this.onNext.bind(this);
     this.onAfter = this.onAfter.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.init = this.init.bind(this);
   }
   onAnswer(answer) {
     this.props.dispatch(questionAnswer(this.props.currentQuestion, answer))
@@ -26,19 +27,44 @@ class App extends Component {
   onSubmit() {
       this.props.dispatch(submit(this.props.questions));
   }
+  init() {
+    let token = "?token=164faf060f1938806cfb"; // token de usuario
+    let url = `https://quiz2019.herokuapp.com/api/quizzes/random10wa${token}`;
+    console.log(url);
+    fetch(url)
+      .then((response) => {
+        return response.json();
+      })
+      .then((responseJson) => {
+        this.props.dispatch(initQuestions(responseJson));
+      })
+      .catch((error) => {
+        console.log("Error en la petición HTTP:" + error.message);
+      });
+  }
+
+componentDidMount() {
+    this.init();
+}
+
   render() {
     return (
       <div className="App">
         <nav className="App-header"><b>Quiz</b></nav>
-        <Game question={ this.props.questions[this.props.currentQuestion]}
-              index={ this.props.currentQuestion }
-              length={ this.props.questions.length }
-              finished={ this.props.finished }
-              score={ this.props.score }
-              onAnswer={ this.onAnswer }
-              onNext={ this.onNext }
-              onAfter={ this.onAfter }
-              onSubmit={ this.onSubmit }/>
+        { this.props.questions.length > 0 ?
+          <Game question={ this.props.questions[this.props.currentQuestion]}
+                index={ this.props.currentQuestion }
+                length={ this.props.questions.length }
+                finished={ this.props.finished }
+                score={ this.props.score }
+                onAnswer={ this.onAnswer }
+                onNext={ this.onNext }
+                onAfter={ this.onAfter }
+                onSubmit={ this.onSubmit }/> :
+          <img className="waiting"
+               src='https://image.flaticon.com/icons/svg/1288/1288278.svg'
+               alt="no questions..."/>
+        }
       </div>
     );
   }

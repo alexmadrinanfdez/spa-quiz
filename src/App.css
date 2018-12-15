@@ -2,8 +2,9 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
+.waiting {
+  margin-top: 5em;
+  animation: waiting-spin infinite 2.5s linear;
   height: 40vmin;
 }
 
@@ -18,7 +19,7 @@
   color: white;
 }
 
-@keyframes App-logo-spin {
+@keyframes waiting-spin {
   from {
     transform: rotate(0deg);
   }

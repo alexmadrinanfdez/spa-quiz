@@ -5,8 +5,6 @@ import { createStore } from 'redux';
 import React from 'react';
 import App from '../App';
 
-import { questions } from "../assets/mock-data";
-
 export default class ReduxProvider extends React.Component {
     constructor(props) {
         super(props);
@@ -15,7 +13,7 @@ export default class ReduxProvider extends React.Component {
             score: 0,
             finished: false,
             currentQuestion: 0,
-            questions: [ ...questions ]
+            questions: []
         };
         this.store = this.configureStore();
     }

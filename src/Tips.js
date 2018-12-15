@@ -1,4 +1,5 @@
 import React from 'react';
+import './Tips.css';
 
 export default class Tips extends React.Component {
     render() {
