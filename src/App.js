@@ -50,7 +50,11 @@ componentDidMount() {
   render() {
     return (
       <div className="App">
-        <nav className="App-header"><b>Quiz</b></nav>
+        <nav className="App-header">
+          <img className="logo" src='assets/favicon.png' alt='logo'/>
+          <span><b>Quiz</b></span>
+          <img className="logo" src='assets/favicon.png' alt='logo'/>
+        </nav>
         { this.props.questions.length > 0 ?
           <Game question={ this.props.questions[this.props.currentQuestion]}
                 index={ this.props.currentQuestion }

@@ -1,0 +1,28 @@
+img#imgCustom {
+  margin-top: 75px;
+  margin-bottom: 25px;
+  width: 400px;
+  height: 300px;
+}
+
+div#content {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+}
+
+div#der {
+  flex-basis: 50%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+div#izq {
+  flex-basis: 50%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-end;
+  align-items: center;
+}

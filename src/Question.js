@@ -1,15 +1,16 @@
 import React from 'react';
+import './Question.css'
 
 import Tips from './Tips'
 
 export default class Question extends React.Component {
     render() {
         return (
-            <React.Fragment>
-                <h2>Question { this.props.index + 1 }</h2>
-                <p>¿{ this.props.question.question }?</p>
+            <>
+                <h2 id="question">Question { this.props.index + 1 }</h2>
+                <p id="text">¿{ this.props.question.question }?</p>
                 <Tips tips={ this.props.question.tips }/>
-            </React.Fragment>
+            </>
         );
     }
 }

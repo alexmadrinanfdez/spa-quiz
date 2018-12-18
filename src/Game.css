@@ -1,0 +1,14 @@
+h2#final {
+  font-weight: lighter;
+  font-size: 50px;
+  margin-top: 10%;
+}
+
+h2#final em {
+  font-weight: bold;
+}
+
+div#game {
+  display: flex;
+  flex-flow: column nowrap;
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import './Content.css'
 
 import Question from './Question';
 import Answer from './Answer';
@@ -6,18 +7,18 @@ import Answer from './Answer';
 export default class Content extends React.Component {
     render() {
         return (
-            <React.Fragment>
-                <Question question={ this.props.question }
-                          index={ this.props.index }/>
-                <img src={ this.props.question.attachment.url }
-                     height="500px"
-                     width="500px"
-                     alt="imagen del quiz"/>
-                <div>
+            <div id="content">
+                <div id="der">
+                    <Question question={ this.props.question }
+                              index={ this.props.index }/>
+                </div>
+                <div id="izq">
+                    <img id="imgCustom" src={ this.props.question.attachment.url }
+                         alt="imagen del quiz"/>
                     <Answer answer={ this.props.question.userAnswer }
                             onAnswer={ this.props.onAnswer }/>
                 </div>
-            </React.Fragment>
+            </div>
         );
     }
 }
