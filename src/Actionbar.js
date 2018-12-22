@@ -5,16 +5,18 @@ import Button from "./Button";
 
 export default class Actionbar extends React.Component {
     render() {
-        if (this.props.length >= 0) {
+        if (this.props.length >= 0 && !this.props.finished) {
             return (
-                <div id="actionbar">
+                <div className="actionbar">
+                    <Button name={ "Otra vez" }
+                            onClick={ this.props.onReset }/>
                     {
                         this.props.index > 0 ?
                             <Button name={ "Anterior" }
                                     disabled={false}
                                     onClick={ this.props.onAfter }/> :
                             <Button name={ "Anterior" }
-                                    disabled={ true}/>
+                                    disabled/>
                     }
                     {
                         this.props.index < this.props.length - 1 ?
@@ -22,21 +24,29 @@ export default class Actionbar extends React.Component {
                                     disabled={ false }
                                     onClick={ this.props.onNext }/> :
                             <Button name={ "Siguiente" }
-                                    disabled={ true }/>
+                                    disabled/>
                     }
                     <Button name={ "Enviar" }
                             onClick={ this.props.onSubmit }/>
                 </div>
             )
         } else {
-            return [
-                <Button name={ "Anterior" }
-                        disabled={ true }/>,
-                <Button name={ "Siguiente" }
-                        disabled={ true }/>,
-                <Button name={ "Enviar" }
-                        disabled={ true }/>
-            ]
+            return (
+                <div className="actionbar">
+                    <Button name={ "Otra vez" }
+                            disabled={ false }
+                            onClick={ this.props.onReset }/>
+                    <Button name={ "Anterior" }
+                            disabled
+                            hidden/>
+                    <Button name={ "Siguiente" }
+                            disabled
+                            hidden/>
+                    <Button name={ "Enviar" }
+                            disabled
+                            hidden/>
+                </div>
+            )
         }
     }
 }

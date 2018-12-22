@@ -1,0 +1,24 @@
+p#timer {
+    align-self: center;
+
+    border: 2px solid black;
+    padding: 5px 20px;
+    margin-bottom: 0;
+    font-size: 25px;
+    animation: timer 0.5s linear infinite alternate;
+}
+
+@keyframes timer {
+    from {
+        border-color: black;
+        color: black;
+    }
+    to {
+        border-color: red;
+        color: red;
+    }
+}
+
+span#millis {
+    font-size: initial;
+}

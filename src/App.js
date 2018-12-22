@@ -64,9 +64,10 @@ componentDidMount() {
                 onAnswer={ this.onAnswer }
                 onNext={ this.onNext }
                 onAfter={ this.onAfter }
-                onSubmit={ this.onSubmit }/> :
+                onSubmit={ this.onSubmit }
+                onReset={ this.init }/> :
           <img className="waiting"
-               src='https://image.flaticon.com/icons/svg/1288/1288278.svg'
+               src='assets/tratamiento.svg'
                alt="no questions..."/>
         }
       </div>

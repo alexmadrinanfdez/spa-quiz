@@ -10,6 +10,8 @@ function score(state = 0, action = {}) {
                 if (ua === a) { state += 1 }
             });
             return state;
+        case INIT_QUESTIONS:
+            return 0;
         default:
             return state;
     }
@@ -19,6 +21,8 @@ function finished(state = false, action = {}) {
     switch (action.type) {
         case SUBMIT:
             return true;
+        case INIT_QUESTIONS:
+            return false;
         default:
             return state;
     }
@@ -28,6 +32,8 @@ function currentQuestion(state = 0, action = {}) {
     switch (action.type) {
         case CHANGE_QUESTION:
             return action.index;
+        case INIT_QUESTIONS:
+            return 0;
         default:
             return state;
     }
